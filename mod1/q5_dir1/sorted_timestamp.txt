@@ -1,0 +1,5 @@
+total 0
+-rw-rw-r-- 1 madhumita madhumita 0 Feb  7 19:21 sorted_timestamp.txt
+-rw-rw-r-- 1 madhumita madhumita 0 Feb  1 22:05 file_c.txt
+-rw-rw-r-- 1 madhumita madhumita 0 Feb  1 22:05 file_b.txt
+-rw-rw-r-- 1 madhumita madhumita 0 Feb  1 22:05 file_a.txt

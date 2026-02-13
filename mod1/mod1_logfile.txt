@@ -1,0 +1,278 @@
+# Setting up of the directory 
+madhumita@madhumita-VirtualBox:~$ cd Desktop
+madhumita@madhumita-VirtualBox:~/Desktop$ mkdir assessments
+madhumita@madhumita-VirtualBox:~/Desktop$ cd assessments
+madhumita@madhumita-VirtualBox:~/Desktop/assessments$ mkdir mod1
+madhumita@madhumita-VirtualBox:~/Desktop/assessments$ cd mod1
+
+# 1. Create a file and give executable permission to all users
+
+madhumita@madhumita-VirtualBox:~/Desktop/assessments/mod1$ touch file1_q1.txt
+madhumita@madhumita-VirtualBox:~/Desktop/assessments/mod1$ ls -l
+total 0
+-rw-rw-r-- 1 madhumita madhumita 0 Feb  1 21:48 file1_q1.txt
+madhumita@madhumita-VirtualBox:~/Desktop/assessments/mod1$ chmod a+x file1_q1.txt
+madhumita@madhumita-VirtualBox:~/Desktop/assessments/mod1$ ls -l
+total 0
+-rwxrwxr-x 1 madhumita madhumita 0 Feb  1 21:48 file1_q1.txt
+
+# 2. Create a file and remove permission for group users alone
+
+madhumita@madhumita-VirtualBox:~/Desktop/assessments/mod1$ touch file2_q2.txt
+madhumita@madhumita-VirtualBox:~/Desktop/assessments/mod1$ chmod g-w file2_q2.txt
+madhumita@madhumita-VirtualBox:~/Desktop/assessments/mod1$ ls -l
+total 0
+-rwxrwxr-x 1 madhumita madhumita 0 Feb  1 21:48 file1_q1.txt
+-rw-r--r-- 1 madhumita madhumita 0 Feb  1 21:50 file2_q2.txt
+
+# 3. Softlink for a file in dir2 inside dir1
+madhumita@madhumita-VirtualBox:~/Desktop/assessments/mod1$ mkdir dir1
+madhumita@madhumita-VirtualBox:~/Desktop/assessments/mod1$ cd dir1
+madhumita@madhumita-VirtualBox:~/Desktop/assessments/mod1/dir1$ mkdir dir2
+madhumita@madhumita-VirtualBox:~/Desktop/assessments/mod1/dir1$ cd dir2
+madhumita@madhumita-VirtualBox:~/Desktop/assessments/mod1/dir1/dir2$ touch file3_q3.txt
+madhumita@madhumita-VirtualBox:~/Desktop/assessments/mod1/dir1/dir2$ cd ..
+madhumita@madhumita-VirtualBox:~/Desktop/assessments/mod1/dir1$ ln -s dir2/file3_q3.txt softlink_file3
+madhumita@madhumita-VirtualBox:~/Desktop/assessments/mod1/dir1$ ls -l
+total 4
+drwxrwxr-x 2 madhumita madhumita 4096 Feb  1 21:52 dir2
+lrwxrwxrwx 1 madhumita madhumita   17 Feb  1 21:55 softlink_file3 -> dir2/file3_q3.txt
+madhumita@madhumita-VirtualBox:~/Desktop/assessments/mod1/dir1$ cd ..
+
+# 4. PS command with option to display all active process running
+
+madhumita@madhumita-VirtualBox:~/Desktop/assessments/mod1$ ps
+    PID TTY          TIME CMD
+   4004 pts/0    00:00:00 bash
+   6054 pts/0    00:00:00 ps
+madhumita@madhumita-VirtualBox:~/Desktop/assessments/mod1$ ps -aux
+USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root           1  0.4  0.5  23288 14428 ?        Ss   21:37   0:05 /sbin/init splash
+root           2  0.0  0.0      0     0 ?        S    21:37   0:00 [kthreadd]
+root           3  0.0  0.0      0     0 ?        S    21:37   0:00 [pool_workqueue_release]
+root           4  0.0  0.0      0     0 ?        I<   21:37   0:00 [kworker/R-rcu_gp]
+root           5  0.0  0.0      0     0 ?        I<   21:37   0:00 [kworker/R-sync_wq]
+root           6  0.0  0.0      0     0 ?        I<   21:37   0:00 [kworker/R-kvfree_rcu_reclaim]
+root           7  0.0  0.0      0     0 ?        I<   21:37   0:00 [kworker/R-slub_flushwq]
+root           8  0.0  0.0      0     0 ?        I<   21:37   0:00 [kworker/R-netns]
+root          10  0.1  0.0      0     0 ?        I    21:37   0:01 [kworker/0:1-events]
+root          11  0.0  0.0      0     0 ?        I<   21:37   0:00 [kworker/0:0H-events_highpri]
+root          13  0.0  0.0      0     0 ?        I<   21:37   0:00 [kworker/R-mm_percpu_wq]
+root          14  0.0  0.0      0     0 ?        I    21:37   0:00 [rcu_tasks_kthread]
+root          15  0.0  0.0      0     0 ?        I    21:37   0:00 [rcu_tasks_rude_kthread]
+root          16  0.0  0.0      0     0 ?        I    21:37   0:00 [rcu_tasks_trace_kthread]
+root          17  0.0  0.0      0     0 ?        S    21:37   0:00 [ksoftirqd/0]
+root          18  0.1  0.0      0     0 ?        I    21:37   0:01 [rcu_preempt]
+root          19  0.0  0.0      0     0 ?        S    21:37   0:00 [rcu_exp_par_gp_kthread_worker/0]
+root          20  0.0  0.0      0     0 ?        S    21:37   0:00 [rcu_exp_gp_kthread_worker]
+root          21  0.0  0.0      0     0 ?        S    21:37   0:00 [migration/0]
+root          22  0.0  0.0      0     0 ?        S    21:37   0:00 [idle_inject/0]
+root          23  0.0  0.0      0     0 ?        S    21:37   0:00 [cpuhp/0]
+root          24  0.0  0.0      0     0 ?        S    21:37   0:00 [cpuhp/1]
+root          25  0.0  0.0      0     0 ?        S    21:37   0:00 [idle_inject/1]
+root          26  0.0  0.0      0     0 ?        S    21:37   0:00 [migration/1]
+root          27  0.2  0.0      0     0 ?        S    21:37   0:03 [ksoftirqd/1]
+root          30  0.0  0.0      0     0 ?        S    21:37   0:00 [kdevtmpfs]
+root          31  0.0  0.0      0     0 ?        I<   21:37   0:00 [kworker/R-inet_frag_wq]
+root          32  0.0  0.0      0     0 ?        S    21:37   0:00 [kauditd]
+root          33  0.0  0.0      0     0 ?        S    21:37   0:00 [khungtaskd]
+root          34  0.0  0.0      0     0 ?        S    21:37   0:00 [oom_reaper]
+root          36  0.0  0.0      0     0 ?        I<   21:37   0:00 [kworker/R-writeback]
+root          37  0.0  0.0      0     0 ?        S    21:37   0:00 [kcompactd0]
+root          38  0.0  0.0      0     0 ?        SN   21:37   0:00 [ksmd]
+root          40  0.0  0.0      0     0 ?        SN   21:37   0:00 [khugepaged]
+root          41  0.0  0.0      0     0 ?        I<   21:37   0:00 [kworker/R-kintegrityd]
+root          42  0.0  0.0      0     0 ?        I<   21:37   0:00 [kworker/R-kblockd]
+root          43  0.0  0.0      0     0 ?        I<   21:37   0:00 [kworker/R-blkcg_punt_bio]
+root          44  0.0  0.0      0     0 ?        S    21:37   0:00 [irq/9-acpi]
+root          46  0.0  0.0      0     0 ?        I<   21:37   0:00 [kworker/R-tpm_dev_wq]
+root          47  0.0  0.0      0     0 ?        I<   21:37   0:00 [kworker/R-ata_sff]
+root          48  0.0  0.0      0     0 ?        I<   21:37   0:00 [kworker/R-md]
+root          49  0.0  0.0      0     0 ?        I<   21:37   0:00 [kworker/R-md_bitmap]
+root          50  0.0  0.0      0     0 ?        I<   21:37   0:00 [kworker/R-edac-poller]
+root          51  0.0  0.0      0     0 ?        I<   21:37   0:00 [kworker/R-devfreq_wq]
+root          52  0.0  0.0      0     0 ?        S    21:37   0:00 [watchdogd]
+root          53  0.1  0.0      0     0 ?        I<   21:37   0:01 [kworker/1:1H-kblockd]
+root          54  0.0  0.0      0     0 ?        S    21:37   0:00 [kswapd0]
+root          55  0.0  0.0      0     0 ?        S    21:37   0:00 [ecryptfs-kthread]
+root          56  0.0  0.0      0     0 ?        I<   21:37   0:00 [kworker/R-kthrotld]
+root          57  0.0  0.0      0     0 ?        I<   21:37   0:00 [kworker/R-acpi_thermal_pm]
+root          59  0.0  0.0      0     0 ?        S    21:37   0:00 [scsi_eh_0]
+root          60  0.0  0.0      0     0 ?        I<   21:37   0:00 [kworker/R-scsi_tmf_0]
+root          61  0.0  0.0      0     0 ?        S    21:37   0:00 [scsi_eh_1]
+root          62  0.0  0.0      0     0 ?        I<   21:37   0:00 [kworker/R-scsi_tmf_1]
+root          64  0.1  0.0      0     0 ?        I    21:37   0:01 [kworker/u8:5-events_unbound]
+root          65  0.0  0.0      0     0 ?        I<   21:37   0:00 [kworker/R-mld]
+root          66  0.0  0.0      0     0 ?        I<   21:37   0:00 [kworker/R-ipv6_addrconf]
+root          68  0.0  0.0      0     0 ?        I<   21:37   0:00 [kworker/0:1H-kblockd]
+root          75  0.0  0.0      0     0 ?        I<   21:37   0:00 [kworker/R-kstrp]
+root          90  0.0  0.0      0     0 ?        I<   21:37   0:00 [kworker/R-charger_manager]
+root         148  0.0  0.0      0     0 ?        S    21:37   0:00 [scsi_eh_2]
+root         149  0.0  0.0      0     0 ?        I<   21:37   0:00 [kworker/R-scsi_tmf_2]
+root         192  0.0  0.0      0     0 ?        S    21:37   0:01 [jbd2/sda2-8]
+root         193  0.0  0.0      0     0 ?        I<   21:37   0:00 [kworker/R-ext4-rsv-conversion]
+root         280  0.0  0.0      0     0 ?        I    21:37   0:00 [kworker/1:3-cgroup_destroy]
+root         286  0.0  0.0      0     0 ?        S    21:37   0:00 [irq/18-vmwgfx]
+root         287  0.0  0.0      0     0 ?        I<   21:37   0:00 [kworker/R-ttm]
+systemd+     381  0.0  0.2  17564  7668 ?        Ss   21:37   0:00 /usr/lib/systemd/systemd-oomd
+systemd+     386  0.0  0.5  21588 13360 ?        Ss   21:37   0:00 /usr/lib/systemd/systemd-resolved
+root         629  0.0  0.0      0     0 ?        I<   21:37   0:00 [kworker/R-cryptd]
+avahi        630  0.0  0.1   8668  4636 ?        Ss   21:37   0:00 avahi-daemon: running [madhumita-VirtualBox.local]
+message+     632  0.1  0.2  12156  7368 ?        Ss   21:37   0:02 @dbus-daemon --system --address=systemd: --nofork --nopidfile --systemd-activation --syslog-only
+gnome-r+     642  0.0  0.6 512812 16608 ?        Ssl  21:37   0:00 /usr/libexec/gnome-remote-desktop-daemon --system
+polkitd      652  0.0  0.4 310912 11208 ?        Ssl  21:37   0:00 /usr/lib/polkit-1/polkitd --no-debug
+root         655  0.0  0.2 313532  7660 ?        Ssl  21:37   0:00 /usr/libexec/power-profiles-daemon
+root         682  0.0  0.3 313292  7900 ?        Ssl  21:37   0:00 /usr/libexec/accounts-daemon
+root         685  0.0  0.1   9424  2860 ?        Ss   21:37   0:00 /usr/sbin/cron -f -P
+root         689  0.0  0.2 309884  7124 ?        Ssl  21:37   0:00 /usr/libexec/switcheroo-control
+root         691  0.1  0.0      0     0 ?        I    21:37   0:01 [kworker/u8:6-events_unbound]
+root         696  0.0  0.3  18272  9024 ?        Ss   21:37   0:00 /usr/lib/systemd/systemd-logind
+root         707  0.0  0.5 469352 14488 ?        Ssl  21:37   0:00 /usr/libexec/udisks2/udisksd
+syslog       731  0.0  0.2 222564  6248 ?        Ssl  21:37   0:00 /usr/sbin/rsyslogd -n -iNONE
+avahi        741  0.0  0.0   8480  1516 ?        S    21:37   0:00 avahi-daemon: chroot helper
+root         755  0.0  0.7 336472 19528 ?        Ssl  21:37   0:00 /usr/sbin/NetworkManager --no-daemon
+root         757  0.0  0.2  17384  6440 ?        Ss   21:37   0:00 /usr/sbin/wpa_supplicant -u -s -O DIR=/run/wpa_supplicant GROUP=netdev
+root         806  0.0  0.5 392092 12884 ?        Ssl  21:37   0:00 /usr/sbin/ModemManager
+root        1231  0.0  0.4  38396 12412 ?        Ss   21:37   0:00 /usr/sbin/cupsd -l
+root        1240  0.0  0.8 112252 23088 ?        Ssl  21:37   0:00 /usr/bin/python3 /usr/share/unattended-upgrades/unattended-upgrade-shutdown --wait-for-signal
+lp          1245  0.0  0.2  16832  6800 ?        S    21:37   0:00 /usr/lib/cups/notifier/dbus dbus://
+lp          1246  0.0  0.2  16832  6788 ?        S    21:37   0:00 /usr/lib/cups/notifier/dbus dbus://
+lp          1247  0.0  0.2  16832  6868 ?        S    21:37   0:00 /usr/lib/cups/notifier/dbus dbus://
+lp          1248  0.0  0.2  16832  6876 ?        S    21:37   0:00 /usr/lib/cups/notifier/dbus dbus://
+lp          1250  0.0  0.2  16832  6900 ?        S    21:37   0:00 /usr/lib/cups/notifier/dbus dbus://
+lp          1251  0.0  0.2  16832  6884 ?        S    21:37   0:00 /usr/lib/cups/notifier/dbus dbus://
+cups-br+    1253  0.0  0.7 268480 20232 ?        Ssl  21:37   0:00 /usr/sbin/cups-browsed
+kernoops    1254  0.0  0.0  12744  2332 ?        Ss   21:37   0:00 /usr/sbin/kerneloops --test
+kernoops    1260  0.0  0.0  12744  2424 ?        Ss   21:37   0:00 /usr/sbin/kerneloops
+root        1804  0.0  0.0 350060  2360 ?        Sl   21:37   0:01 /usr/bin/VBoxDRMClient
+root        1806  0.0  0.1 355736  3844 ?        Sl   21:37   0:00 /usr/sbin/VBoxService --pidfile /var/run/vboxadd-service.sh
+root        1994  0.0  0.0      0     0 ?        I<   21:37   0:00 [kworker/u9:2]
+root        2290  0.0  0.3 314824  9524 ?        Ssl  21:37   0:00 /usr/sbin/gdm3
+rtkit       2346  0.0  0.1  88476  3536 ?        SNsl 21:37   0:00 /usr/libexec/rtkit-daemon
+colord      2442  0.0  0.5 320064 14544 ?        Ssl  21:37   0:00 /usr/libexec/colord
+root        2479  0.0  0.3 316520  9000 ?        Ssl  21:37   0:00 /usr/libexec/upowerd
+root        2790  0.0  0.4 390044 11052 ?        Sl   21:38   0:00 gdm-session-worker [pam/gdm-password]
+madhumi+    2808  0.2  0.5  21672 12896 ?        Ss   21:38   0:02 /usr/lib/systemd/systemd --user
+madhumi+    2809  0.0  0.1  21468  3648 ?        S    21:38   0:00 (sd-pam)
+madhumi+    2820  0.0  0.4 113632 12784 ?        Ssl  21:38   0:00 /usr/bin/pipewire
+madhumi+    2824  0.0  0.2  97736  6084 ?        Ssl  21:38   0:00 /usr/bin/pipewire -c filter-chain.conf
+madhumi+    2830  0.0  0.7 406892 18980 ?        Ssl  21:38   0:00 /usr/bin/wireplumber
+madhumi+    2831  0.0  0.4 110456 11904 ?        Ssl  21:38   0:00 /usr/bin/pipewire-pulse
+madhumi+    2832  0.1  0.2  11072  6900 ?        Ss   21:38   0:01 /usr/bin/dbus-daemon --session --address=systemd: --nofork --nopidfile --systemd-activation --syslog-only
+madhumi+    2833  0.0  0.4 316508 10328 ?        SLsl 21:38   0:00 /usr/bin/gnome-keyring-daemon --foreground --components=pkcs11,secrets --control-directory=/run/user/1000/keyring
+madhumi+    2874  0.0  0.2 610292  7556 ?        Ssl  21:38   0:00 /usr/libexec/xdg-document-portal
+madhumi+    2887  0.0  0.2 235668  6200 tty2     Ssl+ 21:38   0:00 /usr/libexec/gdm-wayland-session env GNOME_SHELL_SESSION_MODE=ubuntu /usr/bin/gnome-session --session=ubuntu
+madhumi+    2902  0.0  0.2 309308  6216 ?        Ssl  21:38   0:00 /usr/libexec/xdg-permission-store
+madhumi+    2903  0.0  0.6 298236 16644 tty2     Sl+  21:38   0:00 /usr/libexec/gnome-session-binary --session=ubuntu
+root        2928  0.0  0.0   2704  2056 ?        Ss   21:38   0:00 fusermount3 -o rw,nosuid,nodev,fsname=portal,auto_unmount,subtype=portal -- /run/user/1000/doc
+madhumi+    2971  0.0  0.2 162652  6932 ?        Ssl  21:38   0:00 /usr/libexec/gcr-ssh-agent --base-dir /run/user/1000/gcr
+madhumi+    2972  0.0  0.2  91548  5652 ?        Ssl  21:38   0:00 /usr/libexec/gnome-session-ctl --monitor
+madhumi+    2981  0.0  0.3 314272  8164 ?        Ssl  21:38   0:00 /usr/libexec/gvfsd
+madhumi+    2994  0.0  0.2 459708  7236 ?        Sl   21:38   0:00 /usr/libexec/gvfsd-fuse /run/user/1000/gvfs -f
+madhumi+    2996  0.0  0.7 799024 18368 ?        Ssl  21:38   0:00 /usr/libexec/gnome-session-binary --systemd-service --session=ubuntu
+madhumi+    3027  0.0  0.3 382936  7944 ?        Sl   21:38   0:00 /usr/libexec/at-spi-bus-launcher --launch-immediately
+madhumi+    3028  3.8 16.2 3986512 418452 ?      Ssl  21:38   0:42 /usr/bin/gnome-shell
+madhumi+    3042  0.0  0.2   9480  5204 ?        S    21:38   0:00 /usr/bin/dbus-daemon --config-file=/usr/share/defaults/at-spi2/accessibility.conf --nofork --print-address 11 --addre
+madhumi+    3099  0.0  0.3 236068  7848 ?        Sl   21:38   0:00 /usr/libexec/at-spi2-registryd --use-gnome-session
+madhumi+    3111  0.0  0.6 654728 17816 ?        Sl   21:38   0:00 /usr/libexec/gnome-shell-calendar-server
+madhumi+    3127  0.0  1.6 595328 42668 ?        Ssl  21:38   0:00 /usr/libexec/evolution-source-registry
+madhumi+    3139  0.0  1.0 2519276 26856 ?       Sl   21:38   0:00 /usr/bin/gjs -m /usr/share/gnome-shell/org.gnome.Shell.Notifications
+madhumi+    3143  0.1  0.4 462568 12468 ?        Ssl  21:38   0:02 /usr/bin/ibus-daemon --panel disable
+madhumi+    3146  0.0  0.2 383516  6796 ?        Ssl  21:38   0:00 /usr/libexec/gsd-a11y-settings
+madhumi+    3147  0.0  0.8 412928 20580 ?        Ssl  21:38   0:00 /usr/libexec/gsd-color
+madhumi+    3148  0.0  0.4 431668 12272 ?        Ssl  21:38   0:00 /usr/libexec/gsd-datetime
+madhumi+    3152  0.0  0.3 458860  8060 ?        Ssl  21:38   0:00 /usr/libexec/gsd-housekeeping
+madhumi+    3154  0.0  0.7 485516 19860 ?        Ssl  21:38   0:00 /usr/libexec/gsd-keyboard
+madhumi+    3160  0.0  0.9 667900 25604 ?        Ssl  21:38   0:00 /usr/libexec/gsd-media-keys
+madhumi+    3169  0.0  0.9 523552 24352 ?        Ssl  21:38   0:00 /usr/libexec/gsd-power
+madhumi+    3171  0.0  0.4 323756 11704 ?        Ssl  21:38   0:00 /usr/libexec/gsd-print-notifications
+madhumi+    3173  0.0  0.2 531084  6924 ?        Ssl  21:38   0:00 /usr/libexec/gsd-rfkill
+madhumi+    3175  0.0  0.2 309560  6440 ?        Ssl  21:38   0:00 /usr/libexec/gsd-screensaver-proxy
+madhumi+    3176  0.0  0.4 543184 11772 ?        Ssl  21:38   0:00 /usr/libexec/gsd-sharing
+madhumi+    3178  0.0  0.3 385816  8316 ?        Ssl  21:38   0:00 /usr/libexec/gsd-smartcard
+madhumi+    3179  0.0  0.3 393628  9984 ?        Ssl  21:38   0:00 /usr/libexec/gsd-sound
+madhumi+    3180  0.0  0.8 412756 20924 ?        Ssl  21:38   0:00 /usr/libexec/gsd-wacom
+madhumi+    3182  0.0  0.2 305624  7444 ?        Sl   21:38   0:00 /usr/libexec/gsd-disk-utility-notify
+madhumi+    3191  0.0  2.3 826324 60356 ?        Sl   21:38   0:00 /usr/libexec/evolution-data-server/evolution-alarm-notify
+madhumi+    3247  0.0  0.2 236644  7288 ?        Sl   21:38   0:00 /usr/libexec/ibus-memconf
+madhumi+    3248  0.1  1.1 421528 29792 ?        Sl   21:38   0:01 /usr/libexec/ibus-extension-gtk3
+madhumi+    3258  0.0  0.4 463048 11540 ?        Ssl  21:38   0:00 /usr/libexec/gvfs-udisks2-volume-monitor
+madhumi+    3301  0.0  0.2 310424  7284 ?        Sl   21:38   0:00 /usr/libexec/ibus-portal
+madhumi+    3333  0.0  0.9 546660 24220 ?        Sl   21:38   0:00 /usr/libexec/goa-daemon
+madhumi+    3391  0.0  0.9 890724 24548 ?        Ssl  21:38   0:00 /usr/libexec/evolution-calendar-factory
+madhumi+    3393  0.0  0.3 389124  9436 ?        Sl   21:38   0:00 /usr/libexec/goa-identity-service
+madhumi+    3399  0.0  0.5 416236 15180 ?        Sl   21:38   0:00 /usr/libexec/gsd-printer
+madhumi+    3400  0.0  0.2 309792  6700 ?        Ssl  21:38   0:00 /usr/libexec/gvfs-mtp-volume-monitor
+madhumi+    3417  0.0  0.2 309772  6764 ?        Ssl  21:38   0:00 /usr/libexec/gvfs-goa-volume-monitor
+madhumi+    3421  0.0  1.1 825436 30284 ?        Ssl  21:38   0:00 /usr/libexec/evolution-addressbook-factory
+madhumi+    3426  0.0  0.2 310760  6988 ?        Ssl  21:38   0:00 /usr/libexec/gvfs-gphoto2-volume-monitor
+madhumi+    3436  0.0  0.3 389380  8208 ?        Ssl  21:38   0:00 /usr/libexec/gvfs-afc-volume-monitor
+madhumi+    3452  0.0  2.6 246284 68360 ?        S    21:38   0:00 /usr/bin/Xwayland :0 -rootless -noreset -accessx -core -auth /run/user/1000/.mutter-Xwaylandauth.CLMYJ3 -listenfd 4 -
+madhumi+    3521  0.0  0.2 236768  7484 ?        Sl   21:38   0:00 /usr/libexec/ibus-engine-simple
+madhumi+    3564  0.0  0.2 230208  5940 ?        Ssl  21:38   0:00 /usr/libexec/dconf-service
+madhumi+    3572  0.0  1.0 2519328 27256 ?       Sl   21:38   0:00 /usr/bin/gjs -m /usr/share/gnome-shell/org.gnome.ScreenSaver
+madhumi+    3584  0.0  0.2 236340  6608 ?        Ssl  21:38   0:00 /usr/libexec/gvfsd-metadata
+madhumi+    3585  0.0  0.3 535708  9108 ?        Sl   21:38   0:00 /usr/libexec/gvfsd-trash --spawner :1.20 /org/gtk/gvfs/exec_spaw/0
+madhumi+    3608  0.0  3.1 626508 80224 ?        Ssl  21:38   0:00 /usr/libexec/gsd-xsettings
+madhumi+    3616  0.0  0.5 701612 14584 ?        Ssl  21:38   0:00 /usr/libexec/xdg-desktop-portal
+madhumi+    3711  0.0  0.9 267136 24828 ?        Sl   21:38   0:00 /usr/libexec/ibus-x11
+madhumi+    3713  0.0  1.0 734568 25840 ?        SNsl 21:38   0:00 /usr/libexec/tracker-miner-fs-3
+madhumi+    3717  0.0  1.5 630032 40640 ?        Ssl  21:38   0:00 /usr/libexec/xdg-desktop-portal-gnome
+madhumi+    3721  0.0  3.8 1103360 98240 ?       Sl   21:38   0:00 /usr/libexec/mutter-x11-frames
+madhumi+    3724  0.0  0.0  19496  1580 ?        S    21:38   0:00 /usr/bin/VBoxClient --clipboard
+madhumi+    3725  0.0  0.1 218304  4440 ?        Sl   21:38   0:00 /usr/bin/VBoxClient --clipboard
+madhumi+    3762  0.0  0.0  19496  1504 ?        S    21:38   0:00 /usr/bin/VBoxClient --vmsvga-session
+madhumi+    3763  0.0  0.0 151600  2424 ?        Sl   21:38   0:00 /usr/bin/VBoxClient --vmsvga-session
+madhumi+    3790  0.0  1.0 417784 26376 ?        Ssl  21:38   0:00 /usr/libexec/xdg-desktop-portal-gtk
+madhumi+    3958  0.0  1.1 492288 28568 ?        Sl   21:39   0:00 /usr/bin/update-notifier
+madhumi+    3997  0.3  2.3 701580 59492 ?        Ssl  21:39   0:03 /usr/libexec/gnome-terminal-server
+madhumi+    4004  0.0  0.2  11024  5240 pts/0    Ss   21:39   0:00 bash
+root        4070  0.0  0.0      0     0 ?        I    21:46   0:00 [kworker/1:0-ata_sff]
+root        4077  0.0  0.0      0     0 ?        I<   21:46   0:00 [kworker/u9:1]
+root        4090  0.0  0.3  30584  8776 ?        Ss   21:46   0:00 /usr/lib/systemd/systemd-udevd
+root        4092  0.0  0.0      0     0 ?        I    21:46   0:00 [kworker/0:0-cgroup_destroy]
+root        4096  0.0  0.0      0     0 ?        S    21:46   0:00 [psimon]
+root        4107  0.0  0.6  50448 15676 ?        S<s  21:46   0:00 /usr/lib/systemd/systemd-journald
+madhumi+    4145  0.1  2.5 2809112 64844 ?       Sl   21:46   0:00 gjs /usr/share/gnome-shell/extensions/ding@rastersoft.com/app/ding.js -E -P /usr/share/gnome-shell/extensions/ding@ra
+root        4411  0.0  1.6 554168 41516 ?        Ssl  21:48   0:00 /usr/libexec/fwupd/fwupd
+root        4453  4.9  1.8 2071368 47376 ?       Ssl  21:48   0:24 /usr/lib/snapd/snapd
+root        4822  0.0  0.0      0     0 ?        I<   21:48   0:00 [kworker/1:0H]
+root        5008  0.1  0.0      0     0 ?        I    21:48   0:00 [kworker/u8:2-ext4-rsv-conversion]
+madhumi+    5427  0.1  0.4  39136 12072 ?        Ss   21:48   0:00 /snap/snapd-desktop-integration/343/usr/bin/snapd-desktop-integration
+madhumi+    5608  0.0  1.2 429588 31488 ?        Sl   21:49   0:00 /snap/snapd-desktop-integration/343/usr/bin/snapd-desktop-integration
+root        5863  0.0  0.0      0     0 ?        S    21:49   0:00 [psimon]
+root        6028  0.0  0.0      0     0 ?        I    21:52   0:00 [kworker/1:1]
+root        6053  0.0  0.0      0     0 ?        I    21:55   0:00 [kworker/0:2]
+root        6055  0.0  0.0      0     0 ?        I    21:55   0:00 [kworker/u8:0-events_power_efficient]
+madhumi+    6058  0.0  0.2  14972  5452 pts/0    R+   21:56   0:00 ps -aux
+
+
+# 5. Create file of different timestamp redirect the sorted output to a file.
+madhumita@madhumita-VirtualBox:~/Desktop/assessments/mod1$ cd q5_dir1
+madhumita@madhumita-VirtualBox:~/Desktop/assessments/mod1/q5_dir1$ touch file_a.txt
+madhumita@madhumita-VirtualBox:~/Desktop/assessments/mod1/q5_dir1$ touch file_b.txt
+madhumita@madhumita-VirtualBox:~/Desktop/assessments/mod1/q5_dir1$ touch file_c.txt
+madhumita@madhumita-VirtualBox:~/Desktop/assessments/mod1/q5_dir1$ ls -t > sorted_timestamp.txt
+madhumita@madhumita-VirtualBox:~/Desktop/assessments/mod1/q5_dir1$ cat sorted_timestamp.txt
+sorted_timestamp.txt
+file_c.txt
+file_b.txt
+file_a.txt
+
+
+madhumita@madhumita-VirtualBox:~/Desktop$ cd assessments/mod1
+madhumita@madhumita-VirtualBox:~/Desktop/assessments/mod1$ ls
+dir1  file1_q1.txt  file2_q2.txt  mod1_logfile.txt  q5_dir1
+madhumita@madhumita-VirtualBox:~/Desktop/assessments/mod1$ cd q5_dir1
+madhumita@madhumita-VirtualBox:~/Desktop/assessments/mod1/q5_dir1$ ls
+file_a.txt  file_b.txt  file_c.txt  sorted_timestamp.txt
+madhumita@madhumita-VirtualBox:~/Desktop/assessments/mod1/q5_dir1$ ls -lt>sorted_timestamp.txt
+madhumita@madhumita-VirtualBox:~/Desktop/assessments/mod1/q5_dir1$ cat sorted_timestamp.txt
+total 0
+-rw-rw-r-- 1 madhumita madhumita 0 Feb  7 19:21 sorted_timestamp.txt
+-rw-rw-r-- 1 madhumita madhumita 0 Feb  1 22:05 file_c.txt
+-rw-rw-r-- 1 madhumita madhumita 0 Feb  1 22:05 file_b.txt
+-rw-rw-r-- 1 madhumita madhumita 0 Feb  1 22:05 file_a.txt
+madhumita@madhumita-VirtualBox:~/Desktop/assessments/mod1/q5_dir1$ 
+
+
