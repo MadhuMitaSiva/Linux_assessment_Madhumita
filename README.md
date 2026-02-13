@@ -1,3 +1,1 @@
-Linux assessment modules>README.md
-
-echo Linux assessment modules
+This repository contains all assessment on Linux
