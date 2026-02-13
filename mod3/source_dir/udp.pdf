@@ -1,0 +1,19 @@
+IcmpMsg:
+    InType11: 1
+Udp:
+    269 packets received
+    0 packets to unknown port received
+    0 packet receive errors
+    480 packets sent
+    0 receive buffer errors
+    0 send buffer errors
+UdpLite:
+IpExt:
+    InMcastPkts: 72
+    OutMcastPkts: 77
+    InOctets: 2731684
+    OutOctets: 1580174
+    InMcastOctets: 9071
+    OutMcastOctets: 9271
+    InNoECTPkts: 3693
+MPTcpExt:
