@@ -1,0 +1,10 @@
+This file contains the list of City names
+Tamil Nadu
+Kerala
+Karnataka
+Andhra Pradesh
+Madhya Pradesh
+Telengana
+Delhi
+Gujarat
+Punjab

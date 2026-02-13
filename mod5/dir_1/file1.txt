@@ -1,0 +1,6 @@
+This is the first file in the directory one.
+It contains the list of fruit names.
+Apple
+Orange
+Grape
+Mango

@@ -1,0 +1,28 @@
+madhumita@madhumita-VirtualBox:~/Desktop/assessments/mod5$ bash file_analyser.sh -d dir_1 -k Tata
+Tata present in file3.txt
+madhumita@madhumita-VirtualBox:~/Desktop/assessments/mod5$ bash file_analyser.sh -f dir/file0.txt -k Python
+grep: dir/file0.txt: No such file or directory
+Python: Keyword not found in file/files
+madhumita@madhumita-VirtualBox:~/Desktop/assessments/mod5$ bash file_analyser.sh -f dir/file0.txt -k Python
+grep: dir/file0.txt: No such file or directory
+madhumita@madhumita-VirtualBox:~/Desktop/assessments/mod5$ bash file_analyser.sh -f dir_1/file0.txt -k code
+madhumita@madhumita-VirtualBox:~/Desktop/assessments/mod5$ bash file_analyser.sh -f dir_1/file0.txt -k code
+madhumita@madhumita-VirtualBox:~/Desktop/assessments/mod5$ bash file_analyser.sh -f dir_1/file0.txt -k code
+code: Keyword not found in file/files
+madhumita@madhumita-VirtualBox:~/Desktop/assessments/mod5$ bash file_analyser.sh -f dir/file0.txt -k Python
+dir/file0.txt No such file/directory found.
+Python: Keyword not found in file/files
+madhumita@madhumita-VirtualBox:~/Desktop/assessments/mod5$ bash file_analyser.sh -f dir/file0.txt -k Python
+dir/file0.txt No such file/directory found.
+madhumita@madhumita-VirtualBox:~/Desktop/assessments/mod5$ bash file_analyser.sh --help
+    --help is used to give the detailed description
+
+    -d - directory name/path
+    -f - filename name/ path
+    -k - keyword to be checked
+madhumita@madhumita-VirtualBox:~/Desktop/assessments/mod5$ bash file_analyser.sh -d dir_1 -k Tata
+Tata present in file3.txt
+madhumita@madhumita-VirtualBox:~/Desktop/assessments/mod5$ bash file_analyser.sh -a
+a:Invalid argument passed. Use --help for more details
+
+
