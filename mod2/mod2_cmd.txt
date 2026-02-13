@@ -1,0 +1,86 @@
+# 1. Find the files that are larger than 1MB
+madhumita@madhumita-VirtualBox:~$ find . -type f -size +1M > Desktop/assessments/mod2/file1_q1.txt
+madhumita@madhumita-VirtualBox:~$ cat Desktop/assessments/mod2/file1_q1.txt
+./snap/firefox/common/.cache/mozilla/firefox/noxszoem.default/cache2/entries/0675D0BDF0FAAC65FD57E881A6057092CA26990C
+./snap/firefox/common/.cache/mozilla/firefox/noxszoem.default/cache2/entries/7C4902B74E14D49E033D06D5499283EACA00E319
+./snap/firefox/common/.cache/mozilla/firefox/noxszoem.default/cache2/entries/77C7A79E192343BFD7C00F9962F99AE4E168FFB7
+./snap/firefox/common/.cache/mozilla/firefox/noxszoem.default/cache2/entries/4DDF99D0461C50BB47DC9EC040A8AD4C9355497C
+./snap/firefox/common/.cache/mozilla/firefox/noxszoem.default/cache2/entries/DAC0750F601C593B5440DDCA7A1D0D68E477CF0F
+./snap/firefox/common/.cache/mozilla/firefox/noxszoem.default/startupCache/scriptCache-current.bin
+./snap/firefox/common/.cache/mozilla/firefox/noxszoem.default/startupCache/startupCache.8.little
+./snap/firefox/common/.cache/mozilla/firefox/noxszoem.default/safebrowsing/google4/goog-phish-proto.vlpset
+./snap/firefox/common/.cache/mozilla/firefox/noxszoem.default/safebrowsing/google-trackwhite-digest256.vlpset
+./snap/firefox/common/.cache/mesa_shader_cache/index
+./snap/firefox/common/.mozilla/firefox/Crash Reports/pending/7d7aee3b-fff5-5a28-7485-eb25f799503f.dmp
+./snap/firefox/common/.mozilla/firefox/noxszoem.default/storage/permanent/chrome/idb/3870112724rsegmnoittet-es.sqlite
+./snap/firefox/common/.mozilla/firefox/noxszoem.default/favicons.sqlite
+./snap/firefox/common/.mozilla/firefox/noxszoem.default/gmp-gmpopenh264/2.6.0/libgmpopenh264.so
+./snap/firefox/common/.mozilla/firefox/noxszoem.default/extensions/newtab@mozilla.org.xpi
+./snap/firefox/common/.mozilla/firefox/noxszoem.default/security_state/data.safe.bin
+./snap/firefox/common/.mozilla/firefox/noxszoem.default/security_state/crlite.filter
+./snap/firefox/common/.mozilla/firefox/noxszoem.default/places.sqlite
+./.cache/tracker3/files/http%3A%2F%2Ftracker.api.gnome.org%2Fontology%2Fv3%2Ftracker%23Documents.db
+./.cache/tracker3/files/meta.db
+./.cache/tracker3/files/http%3A%2F%2Ftracker.api.gnome.org%2Fontology%2Fv3%2Ftracker%23FileSystem.db
+./.cache/tracker3/files/http%3A%2F%2Ftracker.api.gnome.org%2Fontology%2Fv3%2Ftracker%23Software.db
+./.cache/tracker3/files/http%3A%2F%2Ftracker.api.gnome.org%2Fontology%2Fv3%2Ftracker%23Audio.db
+./.cache/tracker3/files/http%3A%2F%2Ftracker.api.gnome.org%2Fontology%2Fv3%2Ftracker%23Pictures.db
+./.cache/tracker3/files/http%3A%2F%2Ftracker.api.gnome.org%2Fontology%2Fv3%2Ftracker%23Video.db
+./.cache/mesa_shader_cache_db/index
+
+# 2. Replace all occurences of 'localhost' to 127.0.0.1
+madhumita@madhumita-VirtualBox:~$ sed 's/localhost/127.0.0.1/g' Desktop/assessments/mod2/config.txt > Desktop/assessments/mod2/updated_config.txt
+madhumita@madhumita-VirtualBox:~$ cat Desktop/assessments/mod2/updated_config.txt
+127.0.0.1
+madhumita-VirtualBox
+
+
+ip6-127.0.0.1
+ip6-localnet
+ip6-mcastprefix
+ip6-allnodes
+ip6-allrouters
+
+# 3. Extract error lines without 'DEBUG'
+madhumita@madhumita-VirtualBox:~$ grep -v 'ERROR: DEBUG' Desktop/assessments/mod2/log.txt | grep -w 'ERROR'
+ERROR: Unable to connect to the database.
+ERROR: Failed to fetch data from API endpoint '/users'.
+ERROR: Missing required parameter in the request.
+madhumita@madhumita-VirtualBox:~$ grep -v 'ERROR: DEBUG' Desktop/assessments/mod2/log.txt | grep -w 'ERROR' > Desktop/assessments/mod2/filtered_log.txt
+madhumita@madhumita-VirtualBox:~$ cat Desktop/assessments/mod2/filtered_log.txt
+ERROR: Unable to connect to the database.
+ERROR: Failed to fetch data from API endpoint '/users'.
+ERROR: Missing required parameter in the request.
+
+
+# 4. Identify the process with the highest memory and kill that process. 
+madhumita@madhumita-VirtualBox:~$ ps aux --sort=-%mem | head -n5
+USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+madhumi+    4249  2.3 17.6 3445108 452672 ?      Sl   22:12   0:28 /snap/firefox/7766/usr/lib/firefox/firefox
+madhumi+    3057 10.5 16.4 4077792 421960 ?      Ssl  22:10   2:20 /usr/bin/gnome-shell
+madhumi+    5854  1.7 10.8 1695140 278516 ?      Sl   22:29   0:04 /usr/bin/nautilus --gapplication-service
+madhumi+    5949  9.7  9.4 1613408 242852 ?      Sl   22:30   0:17 /usr/bin/gnome-text-editor /home/madhumita/Desktop/assessments/mod2/m2_as_p2.txt
+madhumita@madhumita-VirtualBox:~$ kill $(ps aux --sort=-%mem | awk 'NR==2{print $2}')
+madhumita@madhumita-VirtualBox:~$ ps aux --sort=-%mem | head -n5
+USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+madhumi+    3057 10.1 15.5 4050072 399816 ?      Rsl  22:10   2:25 /usr/bin/gnome-shell
+madhumi+    5854  1.2 10.8 1695140 278516 ?      Sl   22:29   0:04 /usr/bin/nautilus --gapplication-service
+madhumi+    5949  6.2  9.4 1613408 242852 ?      Sl   22:30   0:17 /usr/bin/gnome-text-editor /home/madhumita/Desktop/assessments/mod2/m2_as_p2.txt
+madhumi+    3751  0.0  3.8 1103636 97608 ?       Sl   22:11   0:00 /usr/libexec/mutter-x11-frames
+madhumita@madhumita-VirtualBox:~$ 
+
+# 5. Print all gateway in a sorted order.
+a)
+madhumita@madhumita-VirtualBox:~$ netstat -rn | awk '{print $2}'|tail -n2 |sort
+0.0.0.0
+10.0.2.2
+b)
+madhumita@madhumita-VirtualBox:~$ netstat -rn | awk 'NR<3{print $2}' && netstat -rn | awk 'NR>2{print $2}'|sort
+IP
+Gateway
+0.0.0.0
+10.0.2.2
+madhumita@madhumita-VirtualBox:~$ 
+
+
+

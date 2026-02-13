@@ -1,0 +1,26 @@
+./snap/firefox/common/.cache/mozilla/firefox/noxszoem.default/cache2/entries/0675D0BDF0FAAC65FD57E881A6057092CA26990C
+./snap/firefox/common/.cache/mozilla/firefox/noxszoem.default/cache2/entries/7C4902B74E14D49E033D06D5499283EACA00E319
+./snap/firefox/common/.cache/mozilla/firefox/noxszoem.default/cache2/entries/77C7A79E192343BFD7C00F9962F99AE4E168FFB7
+./snap/firefox/common/.cache/mozilla/firefox/noxszoem.default/cache2/entries/4DDF99D0461C50BB47DC9EC040A8AD4C9355497C
+./snap/firefox/common/.cache/mozilla/firefox/noxszoem.default/cache2/entries/DAC0750F601C593B5440DDCA7A1D0D68E477CF0F
+./snap/firefox/common/.cache/mozilla/firefox/noxszoem.default/startupCache/scriptCache-current.bin
+./snap/firefox/common/.cache/mozilla/firefox/noxszoem.default/startupCache/startupCache.8.little
+./snap/firefox/common/.cache/mozilla/firefox/noxszoem.default/safebrowsing/google4/goog-phish-proto.vlpset
+./snap/firefox/common/.cache/mozilla/firefox/noxszoem.default/safebrowsing/google-trackwhite-digest256.vlpset
+./snap/firefox/common/.cache/mesa_shader_cache/index
+./snap/firefox/common/.mozilla/firefox/Crash Reports/pending/7d7aee3b-fff5-5a28-7485-eb25f799503f.dmp
+./snap/firefox/common/.mozilla/firefox/noxszoem.default/storage/permanent/chrome/idb/3870112724rsegmnoittet-es.sqlite
+./snap/firefox/common/.mozilla/firefox/noxszoem.default/favicons.sqlite
+./snap/firefox/common/.mozilla/firefox/noxszoem.default/gmp-gmpopenh264/2.6.0/libgmpopenh264.so
+./snap/firefox/common/.mozilla/firefox/noxszoem.default/extensions/newtab@mozilla.org.xpi
+./snap/firefox/common/.mozilla/firefox/noxszoem.default/security_state/data.safe.bin
+./snap/firefox/common/.mozilla/firefox/noxszoem.default/security_state/crlite.filter
+./snap/firefox/common/.mozilla/firefox/noxszoem.default/places.sqlite
+./.cache/tracker3/files/http%3A%2F%2Ftracker.api.gnome.org%2Fontology%2Fv3%2Ftracker%23Documents.db
+./.cache/tracker3/files/meta.db
+./.cache/tracker3/files/http%3A%2F%2Ftracker.api.gnome.org%2Fontology%2Fv3%2Ftracker%23FileSystem.db
+./.cache/tracker3/files/http%3A%2F%2Ftracker.api.gnome.org%2Fontology%2Fv3%2Ftracker%23Software.db
+./.cache/tracker3/files/http%3A%2F%2Ftracker.api.gnome.org%2Fontology%2Fv3%2Ftracker%23Audio.db
+./.cache/tracker3/files/http%3A%2F%2Ftracker.api.gnome.org%2Fontology%2Fv3%2Ftracker%23Pictures.db
+./.cache/tracker3/files/http%3A%2F%2Ftracker.api.gnome.org%2Fontology%2Fv3%2Ftracker%23Video.db
+./.cache/mesa_shader_cache_db/index

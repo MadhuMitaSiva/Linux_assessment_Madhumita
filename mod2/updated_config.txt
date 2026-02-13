@@ -1,0 +1,9 @@
+127.0.0.1
+madhumita-VirtualBox
+
+The
+ip6-127.0.0.1
+ip6-localnet
+ip6-mcastprefix
+ip6-allnodes
+ip6-allrouters
