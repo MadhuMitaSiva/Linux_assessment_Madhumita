@@ -1,1 +1,1 @@
-This repository contains all assessment on Linux
+This repository contains all assessments on Linux
